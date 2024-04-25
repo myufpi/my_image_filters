@@ -30,7 +30,7 @@ class Imagem:
         try:
             self.minha_imagem = Image.open(path_arquivo)
         except Exception as ex:
-            print(f'Erro ao criar a imagem com o arquivo {nome_arquivo} na referência {path_arquivo}: {str(str)}')
+            raise ValueError(f'Erro ao criar a imagem com o arquivo {nome_arquivo} na referência {path_arquivo}: {str(str)}')
 
     def dimensoes(self):
         return self.minha_imagem.size
