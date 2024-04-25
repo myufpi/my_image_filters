@@ -111,5 +111,5 @@ class Main:
         nome = nome + '_edges.jpg'
         filtered_image_edges_filter.save(nome)
         print(f'Filtro edges aplicado com sucesso! Arquivo salvo em {nome}')
-    except as Exception as ex:
+    except Exception as ex:
         raise ValueError(f"{str(ex)}")
