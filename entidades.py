@@ -19,8 +19,10 @@ class Download:
             print(f"Download completo. Arquivo salvo em: {self.path_arquivo}")
         except requests.exceptions.MissingSchema:
             print("URL inválida. Certifique-se de fornecer uma URL válida.")
+            raise ValueError("URL inválida. Certifique-se de fornecer uma URL válida.")
         except requests.exceptions.RequestException as e:
             print(f"Erro na conexão: {e}")
+            raise ValueError(f"Erro na conexão: {e}")
 
 class Imagem:
     minha_imagem = None
