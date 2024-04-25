@@ -79,28 +79,37 @@ class Main:
         imagem_teste = Imagem(nome_arquivo=arquivo, path_arquivo=arquivo)
         return imagem_teste.conteudo()
     except Exception as ex:
-      raise ValueError("{str(ex)}")
+      raise ValueError(f"{str(ex)}")
 
   def aplica_filtro_grayscale(self,minha_imagem, nome):
-    print('Aplicando filtro grayscale...')
-    grayscale_filter = filtros.GrayscaleFilter()
-    filtered_image_grayscale = grayscale_filter.apply_filter(minha_imagem)
-    nome = nome + '_greyscale.jpg'
-    filtered_image_grayscale.save(nome)
-    print(f'Filtro grayscale aplicado com sucesso! Arquivo salvo em {nome}')
+    try:
+        print('Aplicando filtro grayscale...')
+        grayscale_filter = filtros.GrayscaleFilter()
+        filtered_image_grayscale = grayscale_filter.apply_filter(minha_imagem)
+        nome = nome + '_greyscale.jpg'
+        filtered_image_grayscale.save(nome)
+        print(f'Filtro grayscale aplicado com sucesso! Arquivo salvo em {nome}')
+    except Exception as ex:
+      raise ValueError(f"{str(ex)}")
 
   def aplica_filtro_black_and_white(self,minha_imagem, nome):
-    print('Aplicando filtro BlackAndWhite...')
-    black_and_white_filter = filtros.BlackAndWhiteFilter()
-    filtered_image_black_and_white = black_and_white_filter.apply_filter(minha_imagem)
-    nome = nome + '_black_and_white.jpg'
-    filtered_image_black_and_white.save(nome)
-    print(f'Filtro black_and_white aplicado com sucesso! Arquivo salvo em {nome}')
+    try:
+        print('Aplicando filtro BlackAndWhite...')
+        black_and_white_filter = filtros.BlackAndWhiteFilter()
+        filtered_image_black_and_white = black_and_white_filter.apply_filter(minha_imagem)
+        nome = nome + '_black_and_white.jpg'
+        filtered_image_black_and_white.save(nome)
+        print(f'Filtro black_and_white aplicado com sucesso! Arquivo salvo em {nome}')
+    except Exception as ex:
+        raise ValueError(f"{str(ex)}")
 
   def aplica_filtro_edges(self,minha_imagem, nome):
-    print('Aplicando filtro EdgesFilter...')
-    edges_filter = filtros.EdgesFilter()
-    filtered_image_edges_filter = edges_filter.apply_filter(minha_imagem)
-    nome = nome + '_edges.jpg'
-    filtered_image_edges_filter.save(nome)
-    print(f'Filtro edges aplicado com sucesso! Arquivo salvo em {nome}')
+    try:
+        print('Aplicando filtro EdgesFilter...')
+        edges_filter = filtros.EdgesFilter()
+        filtered_image_edges_filter = edges_filter.apply_filter(minha_imagem)
+        nome = nome + '_edges.jpg'
+        filtered_image_edges_filter.save(nome)
+        print(f'Filtro edges aplicado com sucesso! Arquivo salvo em {nome}')
+    except as Exception as ex:
+        raise ValueError(f"{str(ex)}")
