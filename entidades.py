@@ -68,17 +68,20 @@ class Main:
     self.utilidades = utilidades
 
   def get_recurso_imagem(self, minha_url):
-    print(f'URL: {minha_url}')
-    nome_arquivo, extensao_arquivo = self.utilidades.extrair_nome_extensao_url(minha_url)
-    arquivo = nome_arquivo + extensao_arquivo
-    print(f'Arquivo: {arquivo}')
-    meu_download = Download(url=minha_url, path_arquivo=arquivo)
-    print(f'Inicia download...')
-    meu_download.download_file()
-    print(f'Download concluído!')
-    self.utilidades.wait_for_file(arquivo)
-    imagem_teste = Imagem(nome_arquivo=arquivo, path_arquivo=arquivo)
-    return imagem_teste.conteudo()
+    try:
+        print(f'URL: {minha_url}')
+        nome_arquivo, extensao_arquivo = self.utilidades.extrair_nome_extensao_url(minha_url)
+        arquivo = nome_arquivo + extensao_arquivo
+        print(f'Arquivo: {arquivo}')
+        meu_download = Download(url=minha_url, path_arquivo=arquivo)
+        print(f'Inicia download...')
+        meu_download.download_file()
+        print(f'Download concluído!')
+        self.utilidades.wait_for_file(arquivo)
+        imagem_teste = Imagem(nome_arquivo=arquivo, path_arquivo=arquivo)
+        return imagem_teste.conteudo()
+    except Exception as ex:
+      raise ValueError("{str(ex)}")
 
   def aplica_filtro_grayscale(self,minha_imagem, nome):
     print('Aplicando filtro grayscale...')
